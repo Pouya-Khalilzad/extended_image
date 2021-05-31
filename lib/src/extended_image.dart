@@ -16,6 +16,7 @@ import 'package:flutter/semantics.dart';
 import 'editor/extended_image_editor.dart';
 import 'gesture/extended_image_slide_page.dart';
 import 'gesture/extended_image_slide_page_handler.dart';
+import 'dart:io' as IO;
 
 /// extended image base on official
 class ExtendedImage extends StatefulWidget {
@@ -171,7 +172,7 @@ class ExtendedImage extends StatefulWidget {
   ///
   /// If [excludeFromSemantics] is true, then [semanticLabel] will be ignored.
   ExtendedImage.file(
-    File file, {
+    IO.File file, {
     Key? key,
     double scale = 1.0,
     this.semanticLabel,
@@ -529,10 +530,10 @@ class ExtendedImage extends StatefulWidget {
   /// whether handle loading progress for network
   final bool handleLoadingProgress;
 
-  /// when image is removed from the tree permanently, whether clear memory cache
+  ///when image is removed from the tree permanently, whether clear memory cache
   final bool clearMemoryCacheWhenDispose;
 
-  /// build Hero only for sliding page
+  ///build Hero only for sliding page
   final HeroBuilderForSlidingPage? heroBuilderForSlidingPage;
 
   /// init EditConfig when image is ready.
@@ -1090,7 +1091,7 @@ class _ExtendedImageState extends State<ExtendedImage>
           ConstrainedBox(constraints: widget.constraints!, child: current);
     }
 
-    // add for loading/failed/ unGesture image
+    ///add for loading/failed/ unGesture image
     if (_slidePageState != null &&
         !(_loadState == LoadState.completed &&
             widget.mode == ExtendedImageMode.gesture)) {
